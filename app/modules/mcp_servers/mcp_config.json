@@ -1,0 +1,9 @@
+{
+  "todo_server": {
+    "command": "python",
+    "args": [
+      "/home/gozzy/projects/Gen Ai/langgraph-practice/projects/agentic_VA/backend/app/modules/mcp_servers/todo_server.py"
+    ],
+    "transport": "stdio"
+  }
+}
