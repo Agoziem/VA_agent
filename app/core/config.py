@@ -14,6 +14,10 @@ class Settings(BaseSettings):
     GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "your-google-api-key")
     GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "your-groq-api-key")
     TAVILY_API_KEY: str = os.getenv("TAVILY_API_KEY", "your-tavily-api-key")
+    LANGSMITH_TRACING: bool = os.getenv("LANGSMITH_TRACING", "false").lower() in ("true", "1", "t")
+    LANGSMITH_ENDPOINT: str = os.getenv("LANGSMITH_ENDPOINT", "https://api.langsmith.com")
+    LANGSMITH_API_KEY: str = os.getenv("LANGSMITH_API_KEY", "your-langsmith-api-key")
+    LANGSMITH_PROJECT: str = os.getenv("LANGSMITH_PROJECT", "default-project")
 
 
     class Config:

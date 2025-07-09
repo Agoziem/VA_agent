@@ -1,5 +1,5 @@
 from typing import AsyncIterator, Optional
-from app.modules.VA_graph import graph
+from app.modules.agents.VA_graph import graph
 from uuid import uuid4
 from langchain_core.runnables import RunnableConfig
 from langchain_core.messages import HumanMessage

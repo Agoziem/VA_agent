@@ -99,9 +99,11 @@ class TodoCollectionService:
     def __init__(self, db: AsyncSession):
         self.db = db
 
-    async def get_collection_by_id(self, collection_id: UUID) -> Optional[TodoCollectionInDB]:
+    async def get_collection_by_id(self, collection_id: UUID) -> Optional[TodoCollectionResponse]:
         """Get a TodoCollection by its ID."""
-        stmt = select(TodoCollection).where(TodoCollection.id == collection_id)
+        stmt = select(TodoCollection).options(
+            selectinload(TodoCollection.todos)
+        ).where(TodoCollection.id == collection_id)
         result = await self.db.execute(stmt)
         return result.scalar_one_or_none()
 
@@ -142,8 +144,8 @@ class TodoCollectionService:
         await self.db.commit()
         return True
 
-    async def get_all_collections(self) -> list[TodoCollectionResponse]:
+    async def get_all_collections(self) -> list[TodoCollectionInDB]:
         """Get all TodoCollections."""
         result = await self.db.execute(select(TodoCollection))
         collections = result.scalars().all()
-        return [TodoCollectionResponse.model_validate(collection) for collection in collections]
+        return [TodoCollectionInDB.model_validate(collection) for collection in collections]

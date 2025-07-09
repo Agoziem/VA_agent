@@ -8,6 +8,7 @@ dependencies = [
     "alembic>=1.16.2",
     "asyncpg>=0.30.0",
     "fastapi>=0.115.14",
+    "fastapi-mcp>=0.3.4",
     "ipykernel>=6.29.5",
     "itsdangerous>=2.2.0",
     "langchain>=0.3.26",
