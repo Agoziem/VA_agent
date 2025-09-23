@@ -3,7 +3,6 @@ from app.core.routes import router as main_router
 # from app.core.middleware import register_middleware
 from contextlib import asynccontextmanager
 from fastapi_mcp import FastApiMCP
-import uvicorn
 from fastapi.routing import APIRoute
 
 description = """
