@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.core.routes import router as main_router
-# from app.core.middleware import register_middleware
+from app.core.middleware import register_middleware
 from contextlib import asynccontextmanager
 from fastapi_mcp import FastApiMCP
 from fastapi.routing import APIRoute
@@ -31,7 +31,7 @@ app = FastAPI(
 app.include_router(main_router, prefix="/api/v1")
 
 # Register custom middleware
-# register_middleware(app)
+register_middleware(app)
 
 
 # Root endpoint
